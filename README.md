@@ -39,7 +39,19 @@
 
 
 2. В качестве образа использовать network-multitool.
+
+```yaml
+    spec:
+      containers:
+        - image: praqma/network-multitool:alpine-extra
+          imagePullPolicy: IfNotPresent
+          name: network-multitool
+```
+
 3. Разместить поды в namespace App.
+
+<img width="362" alt="namespace app" src="https://github.com/user-attachments/assets/d25d5976-93d8-429b-8243-c995a59b3953">
+
 4. Создать политики, чтобы обеспечить доступ frontend -> backend -> cache. Другие виды подключений должны быть запрещены.
 5. Продемонстрировать, что трафик разрешён и запрещён.
 
