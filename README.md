@@ -53,7 +53,32 @@
 <img width="362" alt="namespace app" src="https://github.com/user-attachments/assets/d25d5976-93d8-429b-8243-c995a59b3953">
 
 4. Создать политики, чтобы обеспечить доступ frontend -> backend -> cache. Другие виды подключений должны быть запрещены.
+
+Сначала покажу, что без политик никаких ограничений нет
+
+<img width="655" alt="All allow" src="https://github.com/user-attachments/assets/495be3aa-1a97-4b94-a39d-ad023f1927a1">
+
+Запретим все с помощью [network-policy-default](https://github.com/sash3939/Kubernetes13-Network_K8s/blob/main/network-policy-default.yaml)
+
+<img width="534" alt="default policy" src="https://github.com/user-attachments/assets/f2223742-12fb-4f1a-9b06-1e66bff21da5">
+
+**Доступ frontend -> backend -> cache. Другие виды подключений должны быть запрещены
+**
+
+К frontend не можем подключиться [network-policy-front](https://github.com/sash3939/Kubernetes13-Network_K8s/blob/main/network-policy-front.yaml)
+
+К backend разрешено подключиться только с frontend [network-policy-back](https://github.com/sash3939/Kubernetes13-Network_K8s/blob/main/network-policy-back.yaml)
+
+К cache разрешено подключиться только backend [network-policy-cache](https://github.com/sash3939/Kubernetes13-Network_K8s/blob/main/network-policy-cache.yaml)
+
 5. Продемонстрировать, что трафик разрешён и запрещён.
+
+Проверка:
+
+<img width="457" alt="policy deny" src="https://github.com/user-attachments/assets/e9a0186f-ba3b-4c60-bc19-94e7210ddf76">
+
+<img width="572" alt="check policy" src="https://github.com/user-attachments/assets/2658b2bf-659e-454e-8e8d-a1e6dfddb303">
+
 
 ### Правила приёма работы
 
